@@ -1,6 +1,6 @@
 {
   "name": "node-database-migration",
-  "description": "A database migration runner for any database",
+  "description": "",
   "version": "0.0.1",
   "author": {
     "name": "Karl Ludwig Weise",
