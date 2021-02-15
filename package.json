@@ -1,7 +1,7 @@
 {
   "name": "@klw/node-database-migration",
   "description": "A tiny script to run your sql database migrations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Karl Ludwig Weise",
     "url": "https://ludwigweise.de"
