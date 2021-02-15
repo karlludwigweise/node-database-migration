@@ -32,7 +32,7 @@
     "lib/**/*"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/karlludwigweise/node-database-migration.git",
+  "homepage": "https://github.com/karlludwigweise/node-database-migration",
   "devDependencies": {
     "@types/jest": "^26.0.16",
     "jest": "^26.6.3",
