@@ -5,7 +5,7 @@ A database migration runner that
 - will run your migration functions
 - will find and run migrations based on your settings (defaults to latest version and a new database).
 - stops running migrations, when one fails
-- runs all remaining migrations, if `curVersion` is `null`.
+- runs all remaining migrations, if `currentVersion` is `null`.
 
 ## Usage
 
@@ -18,7 +18,7 @@ yarn add @klw/node-database-migration
 ```
 import { migrate } from "@klw/node-database-migration";
 
-const curVersion = null;
+const currentVersion = null;
 const migrations = {
   one: {
       version: "1",
@@ -37,7 +37,7 @@ const migrations = {
   },
 };
 
-const result = await migrate([migrations.one, migrations.two, migrations.three], curVersion);
+const result = await migrate([migrations.one, migrations.two, migrations.three], currentVersion);
 ```
 
 ### Your Migration Functions
@@ -56,10 +56,18 @@ You may add `options` to your migrations.
 
 ```
 const options = { targetVersion: "5" }
-const result = await migrate(migrations, curVersion, options);
+const result = await migrate(migrations, currentVersion, options);
 ```
 
 Currently only the `targetVersion` option is available. This will enable you to downgrade.
+
+You may pass an async function as `currentVersion`.
+
+```
+const result = await migrate(migrations, async () => Promise.resolve("X"));
+```
+
+This way you can avoid top level `await`, if needed.
 
 ## Return value
 

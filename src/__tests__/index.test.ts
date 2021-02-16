@@ -70,6 +70,20 @@ test("should run migrations UP, with current version supplied", async () => {
   expect(received).toEqual(expected);
 });
 
+test("should get version from async function", async () => {
+  const expected = {
+    success: true,
+    targetVersion: "3",
+    direction: "UP",
+    started: ["2", "3"],
+    fulfilled: ["2", "3"],
+  };
+  const received = await migrate([migrations.one.success, migrations.two.success, migrations.three.success], async () =>
+    Promise.resolve("1"),
+  );
+  expect(received).toEqual(expected);
+});
+
 test("should run migrations DOWN", async () => {
   const expected = {
     success: true,
